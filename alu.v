@@ -22,7 +22,7 @@ module alu(input [31:0] a, b,
     
     assign zero = &(~result);
     assign overflow = of;
-    assign carry = sum[31] & ~f[1];
+    assign carry = (f[0] == 1'b1) ? (~a & b) | ((~a | b) & sum[31]) : sum[31] & ~f[1];
     assign negative = result[31];
 
 endmodule
