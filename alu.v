@@ -22,7 +22,7 @@ module alu(
                     (f == 3'b101) ? {31'b0, of ^ sum[31]} :
                     32'b0;
 
-    assign zero = &(~result)
+    assign zero = &(~result);
     assign overflow = of;
     assign carry = sum_ext[32] & ~f[1];
     assign negative = result[31];
